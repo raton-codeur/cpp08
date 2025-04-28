@@ -241,3 +241,9 @@ on peut faire : typeid(a) == typeid(b)
 
 on a : std::cout << "Type of a: " << typeid(a).name()
 -
+
+
+-
+i : un iterateur
+i = std::find(itérateur de début sur un conteneur, iterateur de fin sur ce conteneur, valeur à chercher)
+-
