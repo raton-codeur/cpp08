@@ -2,12 +2,13 @@
 #define SPAN_HPP
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 class Span
 {
 	private :
 		std::vector<int> _v;
-		unsigned int _N;
 
 		Span();
 
@@ -18,8 +19,9 @@ class Span
 				~Span();
 
 		void			addNumber(int n);
-		unsigned int	shortestSpan();
-		unsigned int	longestSpan();
+		void			print() const;
+		unsigned int	shortestSpan() const;
+		unsigned int	longestSpan() const;
 		void			addRange(std::vector<int>::iterator beg, std::vector<int>::iterator end);
 };
 
