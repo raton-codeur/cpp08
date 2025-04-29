@@ -247,3 +247,45 @@ on a : std::cout << "Type of a: " << typeid(a).name()
 i : un iterateur
 i = std::find(itérateur de début sur un conteneur, iterateur de fin sur ce conteneur, valeur à chercher)
 -
+
+
+
+-
+sur un vecteur v
+
+v.capacity() pour savoir combien d'éléments allouées
+v.size() pour le nombre d'éléments
+
+généralement, quand on a atteint size == capacity (exemple : v.push_back), il réalloue un nouveau tableau de taille double et recopie le tableau
+
+.reserve() pour changer la capacity
+bonne pratique : 
+std::vector<int> v;
+v.reserve(50);
+
+
+insérer des éléments de v dans vv
+vv.insert(itérateur de fin de vv, itérateur de début de v, itérateur de fin de v)
+
+
+v.swap(vv)
+pour libérer v et le remplacer par vv
+
+
+std::logic_error est pas mal
+
+
+constructeur intéressant pour string : (nombre de répétition, une chaine)
+
+
+passer d'un int à une string : std::to_string(n)
+
+
+
+trier un vecteur :
+std::sort(itérateur de début, itérateur de fin)
+
+
+std::distance(itérateur de début, itérateur de fin) → entier
+
+

@@ -84,6 +84,15 @@ unsigned int Span::longestSpan() const
 
 void Span::addRange(std::vector<int>::iterator beg, std::vector<int>::iterator end)
 {
-	(void)beg;
-	(void)end;
+	size_t n = std::distance(beg, end);
+
+	if (_v.size() + n > _v.capacity())
+		throw std::logic_error(
+			std::string("cannot add range of ")
+			+ std::to_string(n)
+			+ " elements : the Span instance can only store "
+			+ std::to_string(_v.capacity() - _v.size())
+			+ " more elements");
+	
+	_v.insert(_v.end(), beg, end);
 }
