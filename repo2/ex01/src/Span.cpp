@@ -31,11 +31,12 @@ Span::~Span()
 void Span::addNumber(int n)
 {
 	if (_v.size() == _v.capacity())
-	{
-		std::stringstream ss;
-		ss << "cannot add " << n << " : the Span instance has already " << _v.capacity() << " elements";
-		throw std::logic_error(ss.str());
-	}
+		throw std::logic_error(
+			std::string("cannot add ")
+			+ std::to_string(n)
+			+ " : the Span instance has already "
+			+ std::to_string(_v.capacity())
+			+ " elements");
 	_v.push_back(n);
 }
 
@@ -59,11 +60,10 @@ unsigned int Span::shortestSpan() const
 	std::vector<int> tmp(_v);
 	std::sort(tmp.begin(), tmp.end());
 
-	unsigned int diff;
 	unsigned int result = tmp[1] - tmp[0];
 	for (size_t i = 1; i < tmp.size() - 1; ++i)
 	{
-		diff = tmp[i + 1] - tmp[i];
+		unsigned int diff = tmp[i + 1] - tmp[i];
 		if (diff < result)
 			result = diff;
 	}
@@ -85,11 +85,14 @@ unsigned int Span::longestSpan() const
 void Span::addRange(std::vector<int>::iterator beg, std::vector<int>::iterator end)
 {
 	size_t n = std::distance(beg, end);
+
 	if (_v.size() + n > _v.capacity())
-	{
-		std::stringstream ss;
-		ss << "cannot add range of " << n << " elements : the Span instance can only store " << _v.capacity() - _v.size() << " more elements";
-		throw std::logic_error(ss.str());
-	}
+		throw std::logic_error(
+			std::string("cannot add range of ")
+			+ std::to_string(n)
+			+ " elements : the Span instance can only store "
+			+ std::to_string(_v.capacity() - _v.size())
+			+ " more");
+	
 	_v.insert(_v.end(), beg, end);
 }

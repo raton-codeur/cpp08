@@ -144,7 +144,6 @@ int main()
 		std::cout << "--- 7 ---" << std::endl;
 		std::vector<int> v = getRandom(5, 1, 100);
 		Span sp(3);
-		sp.addNumber(9);
 		sp.addRange(v.begin(), v.end());
 	}
 	catch (const std::exception& e)

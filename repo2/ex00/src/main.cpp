@@ -3,7 +3,7 @@
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
-void print_result(bool result)
+void print(bool result)
 {
 	if (result)
 		std::cout << GREEN << "found" << RESET << std::endl;
@@ -25,8 +25,8 @@ int main()
 			std::cout << v[i] << " ";
 		std::cout << std::endl;
 
-		print_result(easyfind(v, 3));
-		print_result(easyfind(v, 6));
+		print(easyfind(v, 3));
+		print(easyfind(v, 6));
 	}
 	{
 		std::cout << "---" << std::endl;
@@ -40,8 +40,8 @@ int main()
 			std::cout << *it << " ";
 		std::cout << std::endl;
 
-		print_result(easyfind(l, 0));
-		print_result(easyfind(l, 10));
-		print_result(easyfind(l, 2));
+		print(easyfind(l, 0));
+		print(easyfind(l, 10));
+		print(easyfind(l, 2));
 	}
 }

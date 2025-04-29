@@ -1,10 +1,7 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 #include <iostream>
-#include <sstream>
-#include <string>
 #include <vector>
-#include <algorithm>
 #include <cstdlib>
 #include <ctime>
 
