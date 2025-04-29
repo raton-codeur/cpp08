@@ -298,3 +298,16 @@ ou peut aussi utiliser emplace. en théorie, on utiliser emplace pour créer un 
 
 s.top() → référence au sommet
 -
+
+
+
+deque
+→ double-ended queue
+→ file doublement terminée
+
+
+operateur [] en gros pareil que .at()
+.at est plus sécurisé 
+
+
+
