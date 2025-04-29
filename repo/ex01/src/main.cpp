@@ -11,19 +11,6 @@ std::vector<int> getRandom(size_t size, int min, int max)
 	return result;
 }
 
-void print(std::vector<int> v)
-{
-	std::cout << "v : ";
-	for (size_t i = 0; i < v.size(); ++i)
-	{
-		std::cout << v[i];
-		if (i != v.size() - 1)
-			std::cout << ", ";
-	}
-	std::cout << std::endl;
-}
-
-
 int main()
 {
 	std::srand(std::time(NULL));
@@ -73,7 +60,46 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	try
 	{
+		Span sp(0);
+		sp.shortestSpan();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Span sp(1);
+		sp.addNumber(5);
+		sp.shortestSpan();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Span sp(0);
+		sp.longestSpan();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Span sp(1);
+		sp.addNumber(5);
+		sp.longestSpan();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	{
+		std::cout << "--- 3 ---" << std::endl;
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
@@ -81,26 +107,47 @@ int main()
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		std::cout << "--- 3 ---" << std::endl;
 		std::cout << "shortest span : " << sp.shortestSpan() << std::endl;
 		std::cout << "longest span : " << sp.longestSpan() << std::endl;
 	}
 	{
 		std::cout << "--- 4 ---" << std::endl;
+		Span sp = Span(3);
+		sp.addNumber(6);
+		sp.addNumber(6);
+
+		std::cout << "shortest span : " << sp.shortestSpan() << std::endl;
+		std::cout << "longest span : " << sp.longestSpan() << std::endl;
+	}
+	{
+		std::cout << "--- 5 ---" << std::endl;
 		std::vector<int> v = getRandom(5, 1, 100);
 		Span sp(100);
 		sp.addRange(v.begin(), v.end());
+
 		sp.print();
 		std::cout << "shortest span : " << sp.shortestSpan() << std::endl;
 		std::cout << "longest span : " << sp.longestSpan() << std::endl;
 	}
 	{
-		std::cout << "--- 4 ---" << std::endl;
-		std::vector<int> v = getRandom(5, 1, 100);
-		Span sp(100);
+		std::cout << "--- 6 ---" << std::endl;
+		std::vector<int> v = getRandom(20000, -100000, 100000);
+		Span sp(20000);
 		sp.addRange(v.begin(), v.end());
-		sp.print();
+
+		// sp.print();
 		std::cout << "shortest span : " << sp.shortestSpan() << std::endl;
 		std::cout << "longest span : " << sp.longestSpan() << std::endl;
+	}
+	try
+	{
+		std::cout << "--- 7 ---" << std::endl;
+		std::vector<int> v = getRandom(5, 1, 100);
+		Span sp(3);
+		sp.addRange(v.begin(), v.end());
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 }

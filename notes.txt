@@ -265,7 +265,7 @@ v.reserve(50);
 
 
 insérer des éléments de v dans vv
-vv.insert(itérateur de fin de vv, itérateur de début de v, itérateur de fin de v)
+vv.insert(itérateur de vv pour indiquer la position d'insertion, itérateur de début de v, itérateur de fin de v)
 
 
 v.swap(vv)
@@ -289,3 +289,12 @@ std::sort(itérateur de début, itérateur de fin)
 std::distance(itérateur de début, itérateur de fin) → entier
 
 
+-
+pour une stack s 
+
+
+s.push(10) → empiler 10
+ou peut aussi utiliser emplace. en théorie, on utiliser emplace pour créer un nouveau objet et push pour les objets déjà créés
+
+s.top() → référence au sommet
+-

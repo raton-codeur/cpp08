@@ -92,7 +92,7 @@ void Span::addRange(std::vector<int>::iterator beg, std::vector<int>::iterator e
 			+ std::to_string(n)
 			+ " elements : the Span instance can only store "
 			+ std::to_string(_v.capacity() - _v.size())
-			+ " more elements");
+			+ " more");
 	
 	_v.insert(_v.end(), beg, end);
 }
